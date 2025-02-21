@@ -2,3 +2,7 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
+
+a.active {
+    background: #d1d1d1;
+}
