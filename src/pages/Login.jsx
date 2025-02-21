@@ -20,6 +20,10 @@ const Login = () => {
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="password-field" type="password" name="password" placeholder="Enter your password" required />
                     </div>
 
+                    <div className="md:w-[558px] mx-auto mt-2">
+                        <a href="#" className="text-lg text-[#403F3F] link-hover">Forgot Password</a>
+                    </div>
+
                     <div className="md:w-[558px] mx-auto mt-7">
                         <button className="w-full bg-[#403F3F] text-white text-xl font-semibold py-4 rounded-md cursor-pointer">Login</button>
                     </div>

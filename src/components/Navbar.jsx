@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import userLogo from "../assets/user.png"
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+    const {user} = useContext(AuthContext);
     const links = <>
         <li className="hover:text-[#303030]"><NavLink to="/">Home</NavLink></li>
         <li className="hover:text-[#303030]"><NavLink to="/about">About</NavLink></li>
@@ -9,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <nav className="flex justify-between items-center pt-5 max-w-6xl mx-auto">
-            <div></div>
+            <div>{user.email}</div>
             <ul className="flex text-lg text-[#706F6F] gap-5">
                 {links}
             </ul>
