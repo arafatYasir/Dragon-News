@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const NewsDetails = () => {
     const data = useLoaderData();
@@ -16,7 +17,12 @@ const NewsDetails = () => {
 
             <p className="text-[17px] font-medium leading-7 text-[#706F6F]">{details}</p>
 
-            <Link to={`/category/${category_id}`} className="text-white text-xl font-medium leading-7 px-7  bg-[#D72050]">All news in this category</Link>
+            <button className="bg-[#D72050] px-2 py-1 rounded-lg mt-5">
+                <Link to={`/category/${category_id}`} className="flex items-center gap-2">
+                    <FaArrowLeftLong className="text-white text-xl" />
+                    <span className="text-white text-xl">Go back</span>
+                </Link>
+            </button>
         </div>
     );
 };
