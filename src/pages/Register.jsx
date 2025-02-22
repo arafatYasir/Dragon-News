@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
 
 const Register = () => {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const { createUser, setUser } = useContext(AuthContext);
@@ -24,6 +25,12 @@ const Register = () => {
         const password = form.get("password");
         const condition = form.get("condition");
 
+        // checking name length
+        if(name.length < 4) {
+            setErrorMessage("Your name must contain at least 4 characters");
+            return;
+        }
+
         // checking passwords security
         if (!passwordRegex.test(password)) {
             setErrorMessage("Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@, $, !, %, , ?, &)");
@@ -32,7 +39,7 @@ const Register = () => {
 
         // checking if condition is accepted
         if(!condition) {
-            setErrorMessage("Please accept our terms and condition.");
+            setErrorMessage("Please accept our terms and condition");
             return;
         }
 
@@ -41,12 +48,14 @@ const Register = () => {
             .then(res => {
                 console.log(res.user);
                 e.target.reset();
+                // sending user back to home page
+                navigate("/category/01");
             })
             .catch(error => {
                 console.log(error.message);
 
                 if (error.code === "auth/email-already-in-use") {
-                    setErrorMessage("The email address is already in use by another account.");
+                    setErrorMessage("The email address is already in use by another account");
                 }
             })
     }

@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
+    const location = useLocation();
     const { signInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = (e) => {
@@ -23,9 +25,28 @@ const Login = () => {
                 console.log(res.user);
 
                 e.target.reset();
+                // sending user back to home page
+                navigate(location?.state ? location.state : "/category/01");
             })
             .catch(error => {
-                console.log(error.message);
+                const errorCode = error.code;
+                if (errorCode === "auth/invalid-email") {
+                    setErrorMessage("The email address is not valid.")
+                } else if (errorCode === "auth/user-not-found") {
+                    setErrorMessage("No user found with this email. Please sign up first.");
+                } else if (errorCode === "auth/wrong-password") {
+                    setErrorMessage("Incorrect password. Please try again.");
+                } else if (errorCode === "auth/too-many-requests") {
+                    setErrorMessage("Too many failed attempts. Try again later.");
+                } else if (errorCode === "auth/network-request-failed") {
+                    setErrorMessage("Network error. Please check your internet connection.");
+                } else if (errorCode === "auth/email-already-in-use") {
+                    setErrorMessage("This email is already in use. Try signing in instead.");
+                } else if (errorCode === "auth/invalid-credential") {
+                    setErrorMessage("Invalid email or password. Please check your details.");
+                } else if (errorCode === "auth/account-exists-with-different-credential") {
+                    setErrorMessage("An account already exists with this email but a different sign-in method. Try using that method.");
+                }
             })
     }
 
@@ -56,32 +77,13 @@ const Login = () => {
                         <button className="w-full bg-[#403F3F] text-white text-xl font-semibold py-4 rounded-md cursor-pointer">Login</button>
                     </div>
 
+                    <div className="md:w-[558px] mx-auto mt-2">
+                        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                    </div>
+
                     <p className="text-center text-[16px] font-semibold leading-7 text-[#706F6F] mt-7">Don't Have An Account? <Link to="/auth/register" className="text-[#F75B5F] link-hover">Register</Link></p>
                 </form>
             </div>
-            {/* <div className="min-h-screen flex flex-col justify-center items-center">
-                <h2>Login Your Account</h2>
-                <form className="card-body max-w-[752px]">
-                    <div className="form-control flex flex-col">
-                        <label className="label">
-                            <span className="label-text">Email address</span>
-                        </label>
-                        <input type="email" placeholder="email" className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
-                    </div>
-                    <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
-                    </div>
-                </form>
-            </div> */}
         </div>
     );
 };
