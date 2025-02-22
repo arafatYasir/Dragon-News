@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext);
+    const { user, signOutUser } = useContext(AuthContext);
     const links = <>
         <li className="hover:text-[#303030]"><NavLink to="/">Home</NavLink></li>
         <li className="hover:text-[#303030]"><NavLink to="/about">About</NavLink></li>
@@ -12,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <nav className="flex justify-between items-center pt-5 max-w-6xl mx-auto">
-            <div>{user.email}</div>
+            <div>{user && user?.email}</div>
             <ul className="flex text-lg text-[#706F6F] gap-5">
                 {links}
             </ul>
@@ -20,7 +20,17 @@ const Navbar = () => {
                 <div>
                     <img src={userLogo} alt="" />
                 </div>
-                <Link to="/auth/login" className="btn btn-ghost text-xl font-semibold text-white bg-[#403F3F] rounded-none">Login</Link>
+                {
+                    user && user?.email ? 
+                    (
+                        <button onClick={signOutUser} to="/auth/login" className="btn btn-ghost text-xl font-semibold text-white bg-[#403F3F] rounded-none">Log Out</button>
+                    )
+                    : 
+                    (
+                        <Link to="/auth/login" className="btn btn-ghost text-xl font-semibold text-white bg-[#403F3F] rounded-none">Login</Link>
+                    )
+                }
+                
             </div>
         </nav>
     );
