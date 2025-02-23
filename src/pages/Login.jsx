@@ -22,8 +22,6 @@ const Login = () => {
         // sign in user with email and password
         signInUser(email, password)
             .then(res => {
-                console.log(res.user);
-
                 e.target.reset();
                 // sending user back to home page
                 navigate(location?.state ? location.state : "/category/01");

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa6";
 import { AuthContext } from "../provider/AuthProvider";
 
 const SocialLogin = () => {
@@ -12,10 +12,6 @@ const SocialLogin = () => {
                 <button onClick={signInWithGoogle} className="btn mb-2 flex items-center gap-2 border w-full py-5 rounded-lg">
                     <FaGoogle className="text-lg" />
                     <span>Login with Google</span>
-                </button>
-                <button className="btn flex items-center gap-2 border w-full py-5 rounded-lg">
-                    <FaGithub className="text-lg" />
-                    <span>Login with Github</span>
                 </button>
             </div>
         </div>

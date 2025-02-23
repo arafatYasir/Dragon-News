@@ -46,7 +46,6 @@ const Register = () => {
         // creating a user
         createUser(email, password)
             .then(res => {
-                console.log(res.user);
                 // resetting form values
                 e.target.reset();
 
@@ -63,8 +62,6 @@ const Register = () => {
 
             })
             .catch(error => {
-                console.log(error.message);
-
                 if (error.code === "auth/email-already-in-use") {
                     setErrorMessage("The email address is already in use by another account");
                 }
