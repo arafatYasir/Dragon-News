@@ -70,7 +70,7 @@ const Login = () => {
                     </div>
 
                     <div className="md:w-[558px] mx-auto mt-2">
-                        <a href="#" className="text-lg text-[#403F3F] link-hover">Forgot Password</a>
+                        <Link to="/auth/reset_password" className="text-lg text-[#403F3F] link-hover">Forgot Password</Link>
                     </div>
 
                     <div className="md:w-[558px] mx-auto mt-7">

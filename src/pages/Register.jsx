@@ -8,7 +8,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const { createUser, setUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ const Register = () => {
         const condition = form.get("condition");
 
         // checking name length
-        if(name.length < 4) {
+        if (name.length < 4) {
             setErrorMessage("Your name must contain at least 4 characters");
             return;
         }
@@ -38,7 +38,7 @@ const Register = () => {
         }
 
         // checking if condition is accepted
-        if(!condition) {
+        if (!condition) {
             setErrorMessage("Please accept our terms and condition");
             return;
         }
@@ -47,9 +47,20 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
+                // resetting form values
                 e.target.reset();
-                // sending user back to home page
-                navigate("/category/01");
+
+                // updating users profile
+                updateUserProfile({ displayName: name, photoURL: photoUrl })
+                    .then(() => {
+                        // sending user back to default page
+                        navigate("/category/01");
+                    })
+                    .catch(error => {
+                        setErrorMessage(error.message);
+                    })
+
+
             })
             .catch(error => {
                 console.log(error.message);
@@ -75,8 +86,8 @@ const Register = () => {
                     </div>
 
                     <div className="flex flex-col md:w-[558px] mx-auto mt-6">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="photo-field">Photo URL</label>
-                        <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="photo-field" type="text" name="photo" placeholder="Enter your photo url" required />
+                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="photo-field">Photo URL <span className="text-red-500 textarea-md">(Optional)</span></label>
+                        <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="photo-field" type="text" name="photo" placeholder="Enter your photo url" />
                     </div>
 
                     <div className="flex flex-col md:w-[558px] mx-auto mt-6">
