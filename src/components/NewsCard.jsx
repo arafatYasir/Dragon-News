@@ -12,7 +12,7 @@ const NewsCard = ({ singleNews }) => {
             <div className="flex items-center justify-between px-5 py-4 bg-[#F3F3F3]">
                 <div className="flex items-center gap-4">
                     <div>
-                        <img className="w-10 rounded-full" src={author.img} alt="author image" />
+                        <img className="w-10 rounded-full" src={author.img} alt="author image" loading="lazy" />
                     </div>
                     <div>
                         <h4 className="text-[16px] font-semibold leading-6 text-[#403F3F]">{author.name}</h4>
@@ -29,7 +29,7 @@ const NewsCard = ({ singleNews }) => {
                 <h2 className="text-xl text-[#403F3F] font-bold leading-9">{title}</h2>
 
                 <div className="mt-5 mb-8">
-                    <img className="w-full h-72 object-cover" src={thumbnail_url} alt="thumbnail image" />
+                    <img className="w-full h-72 object-cover" src={thumbnail_url} alt="thumbnail image" loading="lazy" />
                 </div>
 
                 <p className="text-[16px] leading-7 text-[#706F6F]">

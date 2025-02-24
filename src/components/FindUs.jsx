@@ -1,6 +1,6 @@
-import facebookLogo from "../assets/fb.png"
-import twitterLogo from "../assets/twitter.png"
-import instagramLogo from "../assets/instagram.png"
+import facebookLogo from "../assets/fb.webp"
+import twitterLogo from "../assets/twitter.webp"
+import instagramLogo from "../assets/instagram.webp"
 
 const FindUs = () => {
     return (

@@ -11,8 +11,6 @@ const NewsDetails = () => {
     const { image_url, title, details, category_id } = news;
 
     return (
-
-
         <div className="max-w-6xl mx-auto font-[Poppins] px-4 lg:px-0">
             <Header />
             <Navbar />
@@ -25,7 +23,7 @@ const NewsDetails = () => {
                         {/* News details */}
                         <div className="p-8 border border-[#E7E7E7] rounded-sm mt-5">
                             <div>
-                                <img className="w-full" src={image_url} alt="" />
+                                <img className="w-full" src={image_url} alt="News Image" />
                             </div>
 
                             <h2 className="max-w-[660px] text-[25px] font-bold leading-11 text-[#403F3F] mt-5 mb-2">{title}</h2>

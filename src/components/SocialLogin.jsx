@@ -1,13 +1,23 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa6";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 
-const SocialLogin = ({warningToast}) => {
+const SocialLogin = () => {
     const { user, signInWithGoogle } = useContext(AuthContext);
     const handleSignIn = () => {
         if (user) {
-            warningToast();
+            toast.error('A user is already logged in', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
         else {
             signInWithGoogle();
@@ -23,6 +33,7 @@ const SocialLogin = ({warningToast}) => {
                     <span>Login with Google</span>
                 </button>
             </div>
+            <ToastContainer />
         </div>
     );
 };

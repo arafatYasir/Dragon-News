@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import userLogo from "../assets/user.png"
+import userLogo from "../assets/user.webp"
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
