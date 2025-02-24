@@ -70,32 +70,32 @@ const Register = () => {
 
     return (
         <div className="flex justify-center items-center mt-12">
-            <div className="md:w-[752px] bg-white py-[70px] rounded-md">
-                <h2 className="text-4xl text-[#403F3F] font-semibold text-center">Register your account</h2>
+            <div className="md:w-[752px] bg-white px-10 py-10 md:py-[70px] md:px-0 rounded-md">
+                <h2 className="text-3xl md:text-4xl text-[#403F3F] font-semibold text-center">Register your account</h2>
                 {/* line */}
                 <div className="h-[1px] bg-[#E7E7E7] max-w-[606px] mx-auto my-10"></div>
 
                 {/* form */}
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-col md:w-[558px] mx-auto">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="name-field">Your Name</label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="name-field">Your Name</label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="name-field" type="text" name="name" placeholder="Enter your name" required />
                     </div>
 
                     <div className="flex flex-col md:w-[558px] mx-auto mt-6">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="photo-field">Photo URL <span className="text-red-500 textarea-md">(Optional)</span></label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="photo-field">Photo URL <span className="text-red-500 textarea-md">(Optional)</span></label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="photo-field" type="text" name="photo" placeholder="Enter your photo url" />
                     </div>
 
                     <div className="flex flex-col md:w-[558px] mx-auto mt-6">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="email-field">Email</label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="email-field">Email</label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="email-field" type="email" name="email" placeholder="Enter your email address" required />
                     </div>
 
                     <div className="flex flex-col md:w-[558px] mx-auto mt-6 relative">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="password-field">Password</label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="password-field">Password</label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="password-field" type={showPassword ? "text" : "password"} name="password" placeholder="Enter your password" required />
-                        <button onClick={() => setShowPassword(!showPassword)} type="button" className="absolute left-[92%] top-[63%]">
+                        <button onClick={() => setShowPassword(!showPassword)} type="button" className="absolute left-[91%] md:left-[92%] top-[63%]">
                             {
                                 showPassword ? <LuEyeClosed className="text-xl" /> : <FaEye className="text-xl" />
                             }
@@ -110,7 +110,7 @@ const Register = () => {
                     </div>
 
                     <div className="md:w-[558px] mx-auto mt-7">
-                        <button className="w-full bg-[#403F3F] text-white text-xl font-semibold py-4 rounded-md cursor-pointer">Register</button>
+                        <button className="w-full bg-[#403F3F] text-white text-lg md:text-xl font-semibold py-4 rounded-md cursor-pointer">Register</button>
                     </div>
                 </form>
 

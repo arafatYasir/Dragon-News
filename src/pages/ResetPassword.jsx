@@ -26,10 +26,10 @@ const ResetPassword = () => {
 
     return (
         <div className="flex justify-center items-center">
-            <div className="md:w-[752px] bg-white py-[70px] rounded-md">
+            <div className="md:w-[752px] bg-white px-10 py-10 md:py-[70px] md:px-0 rounded-md">
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-col md:w-[558px] mx-auto">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="email-field">Email Address</label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="email-field">Email Address</label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="email-field" type="email" name="email" placeholder="Enter your email address" required />
                     </div>
 
@@ -41,7 +41,7 @@ const ResetPassword = () => {
                     </div>
 
                     <div className="md:w-[558px] mx-auto mt-7">
-                        <button className="w-full bg-[#403F3F] text-white text-xl font-semibold py-4 rounded-md cursor-pointer">Send Password Reset Mail</button>
+                        <button className="w-full bg-[#403F3F] text-white text-lg md:text-xl font-semibold py-4 rounded-md cursor-pointer">Send Reset Mail</button>
                     </div>
                 </form>
             </div>

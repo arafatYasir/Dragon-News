@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
@@ -21,7 +21,7 @@ const Login = () => {
 
         // sign in user with email and password
         signInUser(email, password)
-            .then(res => {
+            .then(() => {
                 e.target.reset();
                 // sending user back to home page
                 navigate(location?.state ? location.state : "/category/01");
@@ -50,29 +50,29 @@ const Login = () => {
 
     return (
         <div className="flex justify-center items-center mt-12">
-            <div className="md:w-[752px] bg-white py-[70px] rounded-md">
-                <h2 className="text-4xl text-[#403F3F] font-semibold text-center">Login Your Account</h2>
+            <div className="md:w-[752px] bg-white px-10 py-10 md:py-[70px] md:px-0 rounded-md">
+                <h2 className="md:text-4xl text-3xl text-[#403F3F] font-semibold text-center">Login Your Account</h2>
                 {/* line */}
                 <div className="h-[1px] bg-[#E7E7E7] max-w-[606px] mx-auto my-10"></div>
 
                 {/* form */}
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-col md:w-[558px] mx-auto">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="email-field">Email Address</label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="email-field">Email Address</label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="email-field" type="email" name="email" placeholder="Enter your email address" required />
                     </div>
 
                     <div className="flex flex-col md:w-[558px] mx-auto mt-6">
-                        <label className="text-xl font-semibold text-[#403F3F] mb-4" htmlFor="password-field">Password</label>
+                        <label className="text-lg md:text-xl font-semibold text-[#403F3F] mb-4" htmlFor="password-field">Password</label>
                         <input className="placeholder-[#9F9F9F] bg-[#F3F3F3] text-[16px] py-5 pl-5 border-0 rounded-md" id="password-field" type="password" name="password" placeholder="Enter your password" required />
                     </div>
 
-                    <div className="md:w-[558px] mx-auto mt-2">
-                        <Link to="/auth/reset_password" className="text-lg text-[#403F3F] link-hover">Forgot Password</Link>
+                    <div className="md:w-[558px] mx-auto mt-2.5">
+                        <Link to="/auth/reset_password" className="text-[17px] text-[#403F3F] link-hover">Forgot Password</Link>
                     </div>
 
                     <div className="md:w-[558px] mx-auto mt-7">
-                        <button className="w-full bg-[#403F3F] text-white text-xl font-semibold py-4 rounded-md cursor-pointer">Login</button>
+                        <button className="w-full bg-[#403F3F] text-white text-lg md:text-xl font-semibold py-4 rounded-md cursor-pointer">Login</button>
                     </div>
 
                     <div className="md:w-[558px] mx-auto mt-2">

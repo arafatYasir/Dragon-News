@@ -13,15 +13,15 @@ const NewsDetails = () => {
     return (
 
 
-        <div className="max-w-6xl mx-auto font-[Poppins]">
+        <div className="max-w-6xl mx-auto font-[Poppins] px-4 lg:px-0">
             <Header />
             <Navbar />
 
             <div className="mt-8">
                 <h2 className="text-xl font-semibold leading-7 text-[#403F3F]">Dragon News</h2>
 
-                <div className="grid grid-cols-12 gap-3">
-                    <div className="col-span-9">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-9">
                         {/* News details */}
                         <div className="p-8 border border-[#E7E7E7] rounded-sm mt-5">
                             <div>
@@ -40,7 +40,7 @@ const NewsDetails = () => {
                             </button>
                         </div>
                     </div>
-                    <aside className="col-span-3">
+                    <aside className="lg:col-span-3">
                         <RightNavbar />
                     </aside>
                 </div>

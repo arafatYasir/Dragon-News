@@ -7,9 +7,7 @@ const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
     const links = <>
         <li className="hover:text-[#303030]"><NavLink to="/">Home</NavLink></li>
-        <li className="hover:text-[#303030]"><NavLink to="/about">About</NavLink></li>
-        <li className="hover:text-[#303030]"><NavLink to="/career">Career</NavLink></li>
-    </>
+        <li className="hover:text-[#303030]"><NavLink to="/bookmarks">Bookmarks</NavLink></li>    </>
     return (
         <nav className="flex justify-between items-center py-5 max-w-6xl mx-auto">
             <div></div>
