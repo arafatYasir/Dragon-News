@@ -1,8 +1,18 @@
-# React + Vite
+# The Dragon News
+![Homepage of The Dragon News](https://i.ibb.co.com/9H7F9QRd/project-overview.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Overview
+Dragon News is a comprehensive news platform that delivers categorized news from around the world. Each category provides users with specific and relevant news updates. To access full article details, users must first register or log in, ensuring a personalized and secure browsing experience.
 
-Currently, two official plugins are available:
+🔗 [Live URL: The Dragon News](https://the-dragon-news-9ce9f.web.app/category/01)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
+- 🔹 **User Authentication** - Secure login and signup via Firebase Authentication.
+- 🔹 **Real-Time News** - Stay updated with dynamically fetched articles.
+- 🔹 **Bookmark System** (*Coming Soon*) - Save favourite articles for quick access.
+
+### Technologies Used
+- **Frontend:** React, React Router, Tailwind CSS.
+- **Authentication:** Firebase Authentication for secure user access.
+
+⭐ **If you found this project helpful, consider giving it a star!**
